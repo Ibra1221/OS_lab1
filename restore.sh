@@ -2,6 +2,7 @@
 
 directory=$1
 malicious_directory=$2
+whitelist=/home/ibrahim/college/OS/lab1/whitelist.txt
 
 echo "Pick a file by number"
 
@@ -50,7 +51,8 @@ fi
 case $((option)) in
     1)
     mv "$selected" "$directory"
-    echo "Restored $selected to $directory."
+    echo "Restored $selected##*/ to $directory."
+    echo "${selected##*/}" >> "$whitelist"
     break
     ;;
     
